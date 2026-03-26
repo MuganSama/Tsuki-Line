@@ -397,9 +397,6 @@ class Home(ctk.CTkToplevel):
         self.cancel_train = ctk.CTkButton(self, text="Cancel Reservation", font=("Berlin Sans FB Demi", 28),fg_color="#317CBF", border_color="black", text_color="black", border_width=5,width=280, hover_color="#F1FF49", height=50, command=self.cancel_booking)
         self.cancel_train.place(x=30, y=300)
 
-        self.contributions = ctk.CTkButton(self, text="Contributions", font=("Berlin Sans FB Demi", 28),fg_color="#317CBF", border_color="black", text_color="black", border_width=5,width=280, hover_color="#F1FF49", height=50,command=self.contribution)
-        self.contributions.place(x=30, y=360)
-
         self.re = ctk.CTkButton(self, text="<", height=20, width=20, command=self.close_window)
         self.re.place(x=5, y=5)
 
@@ -434,10 +431,6 @@ class Home(ctk.CTkToplevel):
     def cancel_booking(self):
         self.withdraw()
         self.cancel_booking_window = Cancel(self)
-
-    def contribution(self):
-        self.withdraw()
-        self.contribution_window = Contribution(self)
 
     def close_window(self):
         self.destroy()
@@ -1573,97 +1566,6 @@ def frame_crop_contri(im,x, y, w, h):
     img = im.crop((x+420, y+50, x+420+w,y+50+ h)).filter(ImageFilter.GaussianBlur(radius=3))
     return ctk.CTkImage(dark_image=img,size=(w,h))
 
-class Contribution(ctk.CTkToplevel):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.parent = parent
-
-        window_width = 700
-        window_height = 500
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        x = int((screen_width / 2) - (window_width / 2))
-        y = int((screen_height / 2) - (window_height / 2))
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
-
-        im = ctk.CTkImage(dark_image=Image.open("Holy Grail/11.jpg"), size=(700, 500))
-
-        self.logo = ctk.CTkLabel(self, image=im, text="")
-        self.logo.place(x=0, y=0, relwidth=1, relheight=1)
-
-        img = Image.open("Holy Grail/11.jpg").resize((800, 500)).crop((40,20,340,65))
-        img=ctk.CTkImage(dark_image=img,size=(250,50))
-
-        self.gm = ctk.CTkLabel(self, width=200, height=45, image=img,
-                               text="Acknowledgement", font=("Bahnschrift Condensed", 40,"bold", "underline"), anchor="w", text_color="red")
-        self.gm.place(x=40, y=20)
-
-        self.re = ctk.CTkButton(self, text="<", height=20, width=20, command=self.close_window)
-        self.re.place(x=5, y=5)
-
-        self.pb = ctk.CTkButton(self, text="", width=20, height=20, image=fim, command=self.playfuc)
-        self.pb.place(x=30, y=5)
-
-        im = Image.open("Holy Grail/11.jpg").resize((800, 500))
-
-        self.frame=ctk.CTkFrame(self,width=300,height=400,border_width=10,border_color="black")
-        self.frame.place(x=370,y=50)
-
-        self.logo = ctk.CTkLabel(self.frame, image=frame_crop_contri(im,0,0,300,400), text="")
-        self.logo.place(x=7, y=7,relwidth=0.949, relheight=0.963)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im,10,10,210,30), text="Project Head: Tanishk ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=10)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 40, 210, 30),text="Senior dev: Mugen        ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=40)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 70, 210, 30),text="Junior dev: Shion Hoo  ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=70)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 100, 270, 30),text=" Planning: Alu Mohon Ganguli",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=100)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 130, 250, 30),text="DBM: Unknown Identity    ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=130)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 160, 280, 30),text=" Entertainment: Nigga Monkey ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=160)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 190, 280, 30),text="Investor:Monsieur N. de Casper",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=190)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 220, 200, 30),text="Taoist: Xi Tiang Hu    ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=220)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 250, 230, 30),text=" All other stuffs: Aera lim ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=250)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 280, 200, 30),text=" Music : Mr. Unknown ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=280)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 10, 310, 270, 30),text=" Special Support: Adolf Hitler ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=10, y=310)
-
-        self.l = ctk.CTkLabel(self.frame, width=100, height=30, image=frame_crop_contri(im, 200, 340, 100, 30),text=" & Buddha ",font=("Berlin Sans FB Demi", 20), anchor="w", text_color="black")
-        self.l.place(x=100, y=340)
-
-        self.protocol("WM_DELETE_WINDOW", self.on_close)
-
-    def on_close(self):
-        self.destroy()
-        root = self.parent
-        while root.master is not None:
-            root = root.master
-        root.destroy()
-
-    def close_window(self):
-        self.destroy()
-        self.parent.deiconify()
-
-    def playfuc(self):
-        player_ctrl(condition)
-        self.pb.configure(image=fim)
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
