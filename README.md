@@ -144,4 +144,4 @@ The application uses `customtkinter` to achieve a sleek, dark-themed interface.
 
 - **Selenium Integration:** Route fetching and screenshot logic was independently designed and architected, with implementation assistance from [Claude AI](https://claude.ai).
 - Additional minor assistance from [ChatGPT](https://chatgpt.com) during development.
--The markdown was made by [Claude AI](https://claude.ai) coz I suck in it 💀
+- The markdown was made by [Claude AI](https://claude.ai) coz I suck in it 💀
